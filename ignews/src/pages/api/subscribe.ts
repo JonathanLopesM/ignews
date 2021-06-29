@@ -4,9 +4,29 @@ import { fauna } from '../../services/fauna'
 import { query as q } from 'faunadb'
 import { stripe } from '../../services/stripe'
 
+type User = {
+    ref: {
+        id: string
+    }
+    data: {
+        stripe_customer_id: string
+    }
+}
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if(req.method === 'POST') {
     const session = await getSession( {req} )
+
+    const user = await fauna.query<User>(
+        q.Get(
+            q.Match(
+                q.Index("user_by_email"),
+                q.Casefold(session.user.email)
+            )
+        )
+    )
+
+    let customerId = user.data.stripe_customer_id
 
     const stripeCustomer = await stripe.customers.create({
       email: session.user.email,
@@ -14,7 +34,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     })
 
     await fauna.query(
-        q.Update()
+        q.Update(
+            q.Ref(q.Collection("users"), user.ref.id),
+        {
+            data: {
+                stripe_customer_id: stripeCustomer.id,
+            }
+        }
+        )
     )
 
 

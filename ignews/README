@@ -1,0 +1,18 @@
+
+#ARQUIVO LOCAL NECESSARIO
+a necessidade de um arquivo ".env.local" com as seguintes chaves
+
+        #STRIPE
+        STRIPE_API_KEY= **
+        NEXT_PUBLIC_STRIPE_PUBLIC_KEY=
+        STRIPE_SUCCESS_URL =http://localhost:3000/posts
+        STRIPE_CANCEL_URL =http://localhost:3000/
+
+
+        #GitHub
+        GITHUB_CLIENT_ID=  **
+        GITHUB_CLIENT_SECRET= **
+
+        #FaunaDB
+
+        FAUNADB_KEY= **

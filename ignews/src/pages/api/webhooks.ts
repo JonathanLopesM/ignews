@@ -35,17 +35,34 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     try{
         event = stripe.webhooks.constructEvent(buf, secret, process.env.STRIPE_WEBHOOK_SECRET);
-    }catch (err) {
+    } catch (err) {
         return res.status(400).send(`Webhook error: ${err.message}`);
     }
 
     const { type } = event;
 
-    if(relevantEvents.has(type)) {
-        console.log('Evento recebido', event)
-    }
+    if  (relevantEvents.has(type)) {
+            try {
+                switch (type) {
+                    case 'checkout.session.completed' :
 
-    res.json({ received: true })
+                        const checkoutSession = event.data.object as Stripe.Checkout.Session
+
+                        await saveSubscription(
+                            checkoutSession.subscription.toString(),
+                            checkoutSession.customer.toString()
+                        )
+
+                        break;
+                    default:
+                        throw new Error('Unhandled event.')
+                }
+            } catch (err) {
+                return res.json({ error: 'Webhook handler failed.' })
+            }
+        }
+
+       res.json({ received: true })
     } else {
         res.setHeader('Allow', 'POST')
         res.status(405).end('Method not allowed')

@@ -3,21 +3,21 @@
 a necessidade de um arquivo ".env.local" com as seguintes chaves
 
         #STRIPE
-        STRIPE_API_KEY= **
-        NEXT_PUBLIC_STRIPE_PUBLIC_KEY=
-        STRIPE_WEBHOOK_SECRET = no terminal Ready! Your webhook signing secret is...
-        STRIPE_SUCCESS_URL =http://localhost:3000/posts
-        STRIPE_CANCEL_URL =http://localhost:3000/
+                STRIPE_API_KEY= **
+                NEXT_PUBLIC_STRIPE_PUBLIC_KEY=
+                STRIPE_WEBHOOK_SECRET = no terminal Ready! Your webhook signing secret is...
+                STRIPE_SUCCESS_URL =http://localhost:3000/posts
+                STRIPE_CANCEL_URL =http://localhost:3000/
 
 
         #GitHub
-        
-        GITHUB_CLIENT_ID=  **
-        GITHUB_CLIENT_SECRET= **
+                
+                GITHUB_CLIENT_ID=  **
+                GITHUB_CLIENT_SECRET= **
 
         #FaunaDB
 
-        FAUNADB_KEY= **https://dashboard.fauna.com/keys/
+                FAUNADB_KEY= **https://dashboard.fauna.com/keys/
 
 
         #STRIPE_LISTEN
@@ -26,6 +26,10 @@ a necessidade de um arquivo ".env.local" com as seguintes chaves
                 stripe login
                 stripe listen --forward-to localhost:3000/api/webhooks
 
+        #Prismic CMS
+
+        PRISMIC_ENDPOINT= **
+        PRISMIC_ACCESS_TOKEN= **
 
 
 

@@ -55,7 +55,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                         await saveSubscription(
                             subscription.id,
                             subscription.customer.toString(),
-                            false
                         );
                     
                     break;

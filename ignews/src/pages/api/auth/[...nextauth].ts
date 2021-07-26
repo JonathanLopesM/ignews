@@ -37,7 +37,7 @@ export default NextAuth({
               ),
               q.Match(
                 q.Index('subscription_by_status'),
-                "actibe"
+                "active"
               )
             ])
           )
@@ -45,7 +45,7 @@ export default NextAuth({
 
         return {
           ...session,
-          activeSubcription : userActiveSubscription
+          activeSubscription : userActiveSubscription
         }
       } catch {
         return {

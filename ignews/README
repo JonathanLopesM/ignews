@@ -1,6 +1,6 @@
 
 #ARQUIVO LOCAL NECESSARIO
-a necessidade de um arquivo ".env.local" com as seguintes chaves
+ ".env.local" com as seguintes chaves
 
         #STRIPE
                 STRIPE_API_KEY= **
@@ -32,5 +32,14 @@ a necessidade de um arquivo ".env.local" com as seguintes chaves
         PRISMIC_ACCESS_TOKEN= **
 
 
+
+        # SliceMachine do Prismic
+        #rodar o slicemachine para editar o tamplate
+        yarn run slicemachine
+
+        #estrutura do post
+        # Uid ()
+        # Title (key text)
+        # Content (Richtext)
 
 

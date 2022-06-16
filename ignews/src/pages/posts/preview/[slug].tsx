@@ -25,7 +25,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
 
   useEffect(() => {
       if(session?.activeSubscriptions){
-        router.push(`/posts/${post.slug}`)
+        router.push(`/posts${post.slug}`)
       }
 
   }, [session])
@@ -47,7 +47,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
           <div className={styles.continueReading}>
             Wanna continue reading?
             <Link href="/">
-                <a href=""> Subscribe now 🤗</a>
+                <a> Subscribe now 🤗</a>
             </Link>
           </div>
         </article>
@@ -68,11 +68,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const prismic = getPrismicClient()
 
-  const response = await prismic.getByUID('post', String(slug), {})
+  const response = await prismic.getByUID('posts', String(slug), {})
 
   const post = {
     slug,
-    title: RichText.asText(response.data.title),
+    title: response.data.title,
     content: RichText.asHtml(response.data.content.splice(0, 3)),
     updatedAt: new Date(response.last_publication_date).toLocaleDateString('pt-BR', {
       day: '2-digit',
@@ -85,6 +85,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       post,
     },
-    redirect: 60 * 30, //30min
+    redirect: 60 * 30, //tempo para revalidado 30min
   }
 }

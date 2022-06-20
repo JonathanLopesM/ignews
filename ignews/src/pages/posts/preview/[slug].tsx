@@ -58,7 +58,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
 export const getStaticPaths : GetStaticPaths = async () => {
   return { //geração estatica definida
     paths : [],
-    fallback : true//true //false //'blocking'
+    fallback : 'blocking'//true //false //'blocking'
   }
 }
 

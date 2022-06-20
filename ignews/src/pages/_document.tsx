@@ -1,4 +1,4 @@
-import Document,{Html, Head, Main, NextScript}  from "Next/document";
+import Document,{Html, Head, Main, NextScript}  from "next/document";
 
 
 

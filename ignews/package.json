@@ -6,7 +6,7 @@
     "dev": "next dev",
     "test": "jest",
     "start": "next start",
-    "vercel-build": "npm run prepare && next build"
+    "build": "next build"
   },
   "dependencies": {
     "next": "12",

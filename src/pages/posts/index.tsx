@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Prismic from '@prismicio/client';
 import { RichText } from 'prismic-dom'
 
-import { getPrismicClient } from '../../services/prismic';
+import getPrismicClient from '../../services/prismic';
 
 import styles from './styles.module.scss';
 import Link from 'next/link';
@@ -18,18 +18,20 @@ type Post = {
 interface PostsProps {
   posts: Post[]
 }
-
-export default function Posts({posts}: PostsProps){
+export default function Posts({ posts }){
   return (
     <>
     <Head>
       <title>Posts | Ignews</title>
     </Head>
-
     <main className = {styles.container}>
       <div className = {styles.posts}>
         { posts.map(post => (
+<<<<<<< Updated upstream
           <Link href={`/posts/${post.slug}`}  key={post.slug} >
+=======
+          <Link key={post.slug} href={`/posts/${post.slug}`}>
+>>>>>>> Stashed changes
             <a>
               <time>{post.updatedAt}</time>
               <strong>{post.title}</strong>
@@ -37,7 +39,6 @@ export default function Posts({posts}: PostsProps){
             </a>
           </Link>
         )) }
-        
       </div>
     </main>
     </>
@@ -48,14 +49,19 @@ export default function Posts({posts}: PostsProps){
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient()
 
-  const response = await prismic.query([
+  const response = await prismic.query<any>([
     
     Prismic.predicates.at('document.type', 'posts')
   ], {
     fetch: ['posts.title', 'posts.content'],
     pageSize: 100, 
   })
+<<<<<<< Updated upstream
 console.log(response)
+=======
+  //console.log(response.results)
+
+>>>>>>> Stashed changes
   const posts = response.results.map( post => {
     return {//yarn prismic-dom
       slug: post.uid,
@@ -71,7 +77,7 @@ console.log(response)
 
   return {
     props: {
-      posts
+       posts,
     }
   }
   

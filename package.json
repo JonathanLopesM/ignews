@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+<<<<<<< Updated upstream
     "test": "jest",
     "start": "next start",
     "build": "next build"
@@ -15,6 +16,24 @@
     "@types/prismic-dom": "^2.1.1",
     "axios": "^0.21.1",
     "faunadb": "^4.3.0",
+=======
+    "build": "next build",
+    "start": "next start",
+    "test": "jest",
+    "slicemachine": "start-slicemachine"
+  },
+  "dependencies": {
+    "@prismicio/client": "^5.1.1",
+    "@prismicio/helpers": "^2.3.0",
+    "@prismicio/next": "^0.1.3",
+    "@prismicio/react": "^2.4.1",
+    "@prismicio/slice-simulator-react": "^0.2.2",
+    "@stripe/stripe-js": "^1.15.1",
+    "@types/prismic-dom": "^2.1.1",
+    "axios": "^0.21.1",
+    "faunadb": "^4.5.4",
+    "next": "10.2.3",
+>>>>>>> Stashed changes
     "next-auth": "^3.27.0",
     "prismic-dom": "^2.2.5",
     "react": "^18.2.0",
@@ -29,6 +48,7 @@
     "@testing-library/react": "^13.3.0",
     "@types/next-auth": "^3.15.0",
     "@types/node": "^15.6.1",
+<<<<<<< Updated upstream
     "@types/react": "^18.0.14",
     "babel-jest": "^28.1.1",
     "eslint": "7.32.0",
@@ -38,6 +58,14 @@
     "jest-dom": "^4.0.0",
     "jest-environment-jsdom": "^28.1.1",
     "jest-mock": "^28.1.1",
+=======
+    "@types/react": "^17.0.8",
+    "babel-jest": "^28.1.1",
+    "jest": "^28.1.1",
+    "jest-dom": "^4.0.0",
+    "jest-environment-jsdom": "^28.1.1",
+    "slice-machine-ui": "^0.3.8",
+>>>>>>> Stashed changes
     "typescript": "^4.3.2"
   }
 }

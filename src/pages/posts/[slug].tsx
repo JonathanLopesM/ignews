@@ -3,7 +3,7 @@ import { getSession } from "next-auth/client";
 import Head from "next/head";
 import { RichText } from "prismic-dom";
 
-import { getPrismicClient } from "../../services/prismic";
+import getPrismicClient from "../../services/prismic";
 
 import styles from './post.module.scss';
 
@@ -52,12 +52,20 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
 
   const prismic = getPrismicClient(req)
 
+<<<<<<< Updated upstream
   const response = await prismic.getByUID('posts', String(slug), {})
 
   console.log(response)
   const post = {
     slug,
     title: response.data.title,
+=======
+  const response = await prismic.getByUID<any>('posts', String(slug), {})
+  console.log(response)
+  const post = {
+    slug: response.uid,
+    title: RichText.asText(response.data.title),
+>>>>>>> Stashed changes
     content: RichText.asHtml(response.data.content),
     updatedAt: new Date(response.last_publication_date).toLocaleDateString('pt-BR', {
       day: '2-digit',

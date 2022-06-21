@@ -32,9 +32,12 @@
         PRISMIC_ACCESS_TOKEN= **
 
 
+        #Testes 
+         yarn add jest jest-dom @testing-library/jest-dom @testing-library/dom @testing-library/react babel-jest -D
 
 # SliceMachine do Prismic
 
+<<<<<<< Updated upstream
 # rodar o slicemachine para editar o tamplate
         yarn run slicemachine
 
@@ -54,3 +57,13 @@
    # chamada de render() de '@testing-library/react'
 
   # yarn test --coverage para gerar o relatório de testes implementados
+=======
+        # SliceMachine do Prismic
+        #rodar o slicemachine para editar o tamplate
+        yarn run slicemachine
+
+        #estrutura do post
+        # Uid ()
+        # Title (key text)
+        # Content (Richtext)
+>>>>>>> Stashed changes
